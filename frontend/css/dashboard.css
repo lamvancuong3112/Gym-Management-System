@@ -1,0 +1,129 @@
+/* ==========================================================================
+   GYM MANAGEMENT SYSTEM - DASHBOARD STYLES
+   ========================================================================== */
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-greeting {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dashboard-greeting h2 {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.dashboard-greeting p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Quick Action Buttons in Greeting */
+.dashboard-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* 2-Column Grid for Tables & Charts */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+
+.card-header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.card-title-lg {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.card-action-link {
+  font-size: 13px;
+  color: var(--primary-red);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.card-action-link:hover {
+  text-decoration: underline;
+}
+
+/* Trainer Specific Timeline */
+.trainer-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trainer-timeline-item {
+  background: rgba(30, 23, 36, 0.55);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.trainer-timeline-item:hover {
+  background: rgba(45, 35, 54, 0.75);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+.timeline-time-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.timeline-time {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.timeline-member {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.timeline-type {
+  font-size: 13.5px;
+  color: #D1D5DB;
+}
+
+/* Chart Container */
+.chart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  margin-top: 10px;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

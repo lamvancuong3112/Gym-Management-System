@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITNESS - Huấn luyện viên & Lịch hẹn</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/trainer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Reusable Top Header Component -->
+    <header class="app-header" id="appHeader"></header>
+    <div class="header-separator-line"></div>
+
+
+    <!-- Main Layout Content -->
+    <div class="main-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebarNav"></aside>
+
+      <!-- Content Area -->
+      <main class="content-area">
+
+
+
+        <!-- ================= TAB: MY STUDENTS (HỘI VIÊN PHỤ TRÁCH - CHUẨN FIGMA) ================= -->
+        <section id="section_my_students" class="tab-section" style="display: none;">
+          <!-- Header Bar -->
+          <div class="card-header-flex" style="margin-bottom: 24px;">
+            <div>
+              <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF; margin: 0;">Danh Sách Hội Viên Phụ Trách</h2>
+              <p style="font-size: 13.5px; color: #9CA3AF; margin: 4px 0 0 0;">Quản lý và theo dõi thông số luyện tập của các hội viên được chỉ định</p>
+            </div>
+          </div>
+
+          <!-- Top 3 KPI Cards Grid -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px;">
+            <!-- KPI 1 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 12px; color: #9CA3AF; font-weight: 700; text-transform: uppercase;">TỔNG HỘI VIÊN</div>
+              <div>
+                <span style="font-size: 26px; font-weight: 800; color: #FF334B; letter-spacing: -0.5px;">18 Người</span>
+              </div>
+              <div style="font-size: 12.5px; color: #9CA3AF;">+2 hội viên mới tuần này</div>
+            </div>
+
+            <!-- KPI 2 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 12px; color: #9CA3AF; font-weight: 700; text-transform: uppercase;">SỐ BUỔI ĐÃ KÈM</div>
+              <div>
+                <span style="font-size: 26px; font-weight: 800; color: #10B981; letter-spacing: -0.5px;">142 Buổi</span>
+              </div>
+              <div style="font-size: 12.5px; color: #9CA3AF;">Tháng này đạt KPI 85%</div>
+            </div>
+
+            <!-- KPI 3 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 12px; color: #9CA3AF; font-weight: 700; text-transform: uppercase;">CSAT TRUNG BÌNH</div>
+              <div>
+                <span style="font-size: 26px; font-weight: 800; color: #3B82F6; letter-spacing: -0.5px;">4.9 / 5.0</span>
+              </div>
+              <div style="font-size: 12.5px; color: #9CA3AF;">Từ 48 đánh giá gần nhất</div>
+            </div>
+          </div>
+
+          <!-- Students List Container -->
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- Student 1 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+              <!-- Student Info -->
+              <div style="display: flex; align-items: center; gap: 16px; min-width: 220px;">
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.12); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  👤
+                </div>
+                <div>
+                  <h4 style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin: 0 0 4px 0;">Nguyễn Minh Khoa</h4>
+                  <span style="font-size: 12.5px; color: #9CA3AF;">Tăng cơ giảm mỡ (Recomp)</span>
+                </div>
+              </div>
+
+              <!-- Progress Bar -->
+              <div style="flex: 1; min-width: 200px; max-width: 320px;">
+                <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px;">
+                  <span style="color: #9CA3AF;">Số buổi hoàn thành</span>
+                  <span style="color: #FFFFFF; font-weight: 700;">12/36 Buổi</span>
+                </div>
+                <div style="height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 33.3%; height: 100%; background: #FF334B; border-radius: 4px; box-shadow: 0 0 8px rgba(255, 51, 75, 0.6);"></div>
+                </div>
+              </div>
+
+              <!-- Next Session -->
+              <div style="min-width: 140px;">
+                <div style="font-size: 12px; color: #9CA3AF; margin-bottom: 2px;">Buổi tiếp theo</div>
+                <div style="font-size: 14.5px; font-weight: 700; color: #FF334B;">Thứ 3 - 18:00</div>
+              </div>
+
+              <!-- Action Button -->
+              <div>
+                <button class="btn btn-secondary" style="padding: 10px 20px; font-weight: 600; font-size: 13px;" onclick="showToast('Xem chi tiết lộ trình tập của Nguyễn Minh Khoa')">
+                  Chi Tiết Lộ Trình
+                </button>
+              </div>
+            </div>
+
+            <!-- Student 2 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+              <!-- Student Info -->
+              <div style="display: flex; align-items: center; gap: 16px; min-width: 220px;">
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.12); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  👤
+                </div>
+                <div>
+                  <h4 style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin: 0 0 4px 0;">Phạm Thùy Linh</h4>
+                  <span style="font-size: 12.5px; color: #9CA3AF;">Giảm cân & Cải thiện Cardio</span>
+                </div>
+              </div>
+
+              <!-- Progress Bar -->
+              <div style="flex: 1; min-width: 200px; max-width: 320px;">
+                <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px;">
+                  <span style="color: #9CA3AF;">Số buổi hoàn thành</span>
+                  <span style="color: #FFFFFF; font-weight: 700;">8/24 Buổi</span>
+                </div>
+                <div style="height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 33.3%; height: 100%; background: #FF334B; border-radius: 4px; box-shadow: 0 0 8px rgba(255, 51, 75, 0.6);"></div>
+                </div>
+              </div>
+
+              <!-- Next Session -->
+              <div style="min-width: 140px;">
+                <div style="font-size: 12px; color: #9CA3AF; margin-bottom: 2px;">Buổi tiếp theo</div>
+                <div style="font-size: 14.5px; font-weight: 700; color: #FF334B;">Thứ 4 - 17:00</div>
+              </div>
+
+              <!-- Action Button -->
+              <div>
+                <button class="btn btn-secondary" style="padding: 10px 20px; font-weight: 600; font-size: 13px;" onclick="showToast('Xem chi tiết lộ trình tập của Phạm Thùy Linh')">
+                  Chi Tiết Lộ Trình
+                </button>
+              </div>
+            </div>
+
+            <!-- Student 3 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+              <!-- Student Info -->
+              <div style="display: flex; align-items: center; gap: 16px; min-width: 220px;">
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.12); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  👤
+                </div>
+                <div>
+                  <h4 style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin: 0 0 4px 0;">Trần Hoàng Nam</h4>
+                  <span style="font-size: 12.5px; color: #9CA3AF;">Tập luyện sức mạnh (Powerlifting)</span>
+                </div>
+              </div>
+
+              <!-- Progress Bar -->
+              <div style="flex: 1; min-width: 200px; max-width: 320px;">
+                <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px;">
+                  <span style="color: #9CA3AF;">Số buổi hoàn thành</span>
+                  <span style="color: #FFFFFF; font-weight: 700;">20/20 Buổi</span>
+                </div>
+                <div style="height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 100%; height: 100%; background: #FF334B; border-radius: 4px; box-shadow: 0 0 8px rgba(255, 51, 75, 0.6);"></div>
+                </div>
+              </div>
+
+              <!-- Next Session -->
+              <div style="min-width: 140px;">
+                <div style="font-size: 12px; color: #9CA3AF; margin-bottom: 2px;">Buổi tiếp theo</div>
+                <div style="font-size: 14.5px; font-weight: 700; color: #FF334B;">Hoàn thành gói</div>
+              </div>
+
+              <!-- Action Button -->
+              <div>
+                <button class="btn btn-secondary" style="padding: 10px 20px; font-weight: 600; font-size: 13px;" onclick="showToast('Học viên đã hoàn thành trọn vẹn lộ trình 20 buổi!')">
+                  Chi Tiết Lộ Trình
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB 1: TRAINERS DIRECTORY ================= -->
+        <section id="section_trainers" class="tab-section">
+
+          <div class="glass-card">
+            <div class="card-header-flex" style="margin-bottom: 24px;">
+              <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF; margin: 0;">Danh sách huấn luyện viên</h2>
+              <button class="btn btn-primary" onclick="openAddTrainerModal()">
+                <i class="fa fa-plus"></i> + Thêm HLV
+              </button>
+            </div>
+
+            <div class="table-container">
+              <table class="custom-table">
+                <thead>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
+                    <th style="color: #FF334B; font-weight: 700;">ID</th>
+                    <th style="color: #FF334B; font-weight: 700;">FullName</th>
+                    <th style="color: #FF334B; font-weight: 700;">Gender</th>
+                    <th style="color: #FF334B; font-weight: 700;">DateofBirth</th>
+                    <th style="color: #FF334B; font-weight: 700;">Phone</th>
+                    <th style="color: #FF334B; font-weight: 700;">Email</th>
+                    <th style="color: #FF334B; font-weight: 700;">Specialty</th>
+                    <th style="color: #FF334B; font-weight: 700;">Exp.</th>
+                    <th style="color: #FF334B; font-weight: 700;">Status</th>
+                    <th style="color: #FF334B; font-weight: 700; text-align: center;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="trainerTableBody">
+                  <!-- Populated by trainer.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= TAB: BOOK PT (ĐẶT LỊCH VỚI PT - CHUẨN FIGMA) ================= -->
+        <section id="section_book_pt" class="tab-section" style="display: none;">
+          <!-- Header Bar -->
+          <div class="card-header-flex" style="margin-bottom: 24px; align-items: center;">
+            <div>
+              <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF; margin: 0;">Đặt Lịch Tập Với PT</h2>
+              <p style="font-size: 13.5px; color: #9CA3AF; margin: 4px 0 0 0;">Lựa chọn huấn luyện viên và đặt lịch rèn luyện cá nhân 1:1</p>
+            </div>
+            <button class="btn btn-primary" onclick="openAddBookingModal()">
+              <i class="fa fa-calendar-plus"></i> + Đặt lịch tập mới
+            </button>
+          </div>
+
+          <!-- Top 3 KPI Cards Grid -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px;">
+            <!-- KPI 1 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 12px; color: #9CA3AF; font-weight: 700; text-transform: uppercase;">LỊCH ĐÃ ĐẶT THÁNG NÀY</div>
+              <div>
+                <span style="font-size: 26px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px;">4 Lịch hẹn</span>
+              </div>
+              <div style="font-size: 12.5px; color: #9CA3AF;">HLV Nguyễn Minh Tuấn</div>
+            </div>
+
+            <!-- KPI 2 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 12px; color: #9CA3AF; font-weight: 700; text-transform: uppercase;">CHỜ DUYỆT</div>
+              <div>
+                <span style="font-size: 26px; font-weight: 800; color: #F59E0B; letter-spacing: -0.5px;">1 Yêu cầu</span>
+              </div>
+              <div style="font-size: 12.5px; color: #9CA3AF;">Lịch tập Chủ nhật</div>
+            </div>
+
+            <!-- KPI 3 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 12px; color: #9CA3AF; font-weight: 700; text-transform: uppercase;">ĐÃ HOÀN THÀNH</div>
+              <div>
+                <span style="font-size: 26px; font-weight: 800; color: #10B981; letter-spacing: -0.5px;">8 Buổi kèm</span>
+              </div>
+              <div style="font-size: 12.5px; color: #9CA3AF;">Đánh giá chất lượng 5.0★</div>
+            </div>
+          </div>
+
+          <!-- Table Container -->
+          <div class="glass-card">
+            <h3 style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin: 0 0 16px 0;">Danh sách lịch hẹn của tôi</h3>
+            <div class="table-container">
+              <table class="custom-table">
+                <thead>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
+                    <th style="color: #9CA3AF; font-weight: 600;">Mã lịch</th>
+                    <th style="color: #9CA3AF; font-weight: 600;">Khung giờ</th>
+                    <th style="color: #9CA3AF; font-weight: 600;">HLV phụ trách</th>
+                    <th style="color: #9CA3AF; font-weight: 600;">Ngày tập</th>
+                    <th style="color: #9CA3AF; font-weight: 600;">Nội dung bài tập</th>
+                    <th style="color: #9CA3AF; font-weight: 600;">Trạng thái</th>
+                    <th style="color: #9CA3AF; font-weight: 600; text-align: center;">Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="font-weight: 700; color: #FF334B; padding: 14px 18px;">#BK-001</td>
+                    <td style="color: #FFFFFF; font-weight: 700; padding: 14px 18px;">08:00 - 09:00</td>
+                    <td style="color: #FFFFFF; font-weight: 600; padding: 14px 18px;">Nguyễn Minh Tuấn</td>
+                    <td style="color: #9CA3AF; padding: 14px 18px;">05/03/2026</td>
+                    <td style="color: #9CA3AF; padding: 14px 18px;">Luyện tập ngực &amp; tay trước</td>
+                    <td style="padding: 14px 18px;"><span class="badge badge-green">Đã duyệt</span></td>
+                    <td style="text-align: center; padding: 14px 18px;">
+                      <button class="btn btn-secondary btn-sm" onclick="showToast('Đã gửi thông báo nhắc lịch tập!')">Nhắc lịch</button>
+                    </td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="font-weight: 700; color: #FF334B; padding: 14px 18px;">#BK-003</td>
+                    <td style="color: #FFFFFF; font-weight: 700; padding: 14px 18px;">17:00 - 18:00</td>
+                    <td style="color: #FFFFFF; font-weight: 600; padding: 14px 18px;">Nguyễn Minh Tuấn</td>
+                    <td style="color: #9CA3AF; padding: 14px 18px;">06/03/2026</td>
+                    <td style="color: #9CA3AF; padding: 14px 18px;">Compound Squat &amp; Lưng xô</td>
+                    <td style="padding: 14px 18px;"><span class="badge badge-green">Đã duyệt</span></td>
+                    <td style="text-align: center; padding: 14px 18px;">
+                      <button class="btn btn-secondary btn-sm" onclick="showToast('Đã gửi thông báo nhắc lịch tập!')">Nhắc lịch</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 700; color: #FF334B; padding: 14px 18px;">#BK-009</td>
+                    <td style="color: #FFFFFF; font-weight: 700; padding: 14px 18px;">09:00 - 10:00</td>
+                    <td style="color: #FFFFFF; font-weight: 600; padding: 14px 18px;">Nguyễn Minh Tuấn</td>
+                    <td style="color: #9CA3AF; padding: 14px 18px;">08/03/2026</td>
+                    <td style="color: #9CA3AF; padding: 14px 18px;">Cardio HIIT &amp; Giãn cơ</td>
+                    <td style="padding: 14px 18px;"><span class="badge badge-yellow">Chờ duyệt</span></td>
+                    <td style="text-align: center; padding: 14px 18px;">
+                      <button class="btn btn-danger btn-sm" onclick="showToast('Đã hủy yêu cầu đặt lịch!')">Hủy</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= TAB 2: BOOKINGS LIST (CHUẨN FIGMA) ================= -->
+        <section id="section_bookings" class="tab-section" style="display: none;">
+
+          <!-- Header Bar -->
+          <div class="card-header-flex" style="margin-bottom: 24px; align-items: center;">
+            <div>
+              <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF; margin: 0;">Quản lý Lịch Hẹn & Booking</h2>
+              <p style="font-size: 13.5px; color: #9CA3AF; margin: 4px 0 0 0;">Điều phối lịch tập cá nhân (PT) và lớp nhóm gym</p>
+            </div>
+            <button class="btn btn-primary" onclick="openAddBookingModal()">
+              <i class="fa fa-plus"></i> Tạo lịch đặt mới
+            </button>
+          </div>
+
+          <!-- Top 3 KPI Cards Grid -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px;">
+            <!-- KPI 1 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 13px; color: #9CA3AF; font-weight: 500;">Tổng booking tháng</div>
+              <div>
+                <span style="font-size: 26px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px;">148 Yêu cầu</span>
+              </div>
+            </div>
+
+            <!-- KPI 2 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 13px; color: #9CA3AF; font-weight: 500;">Đang chờ duyệt</div>
+              <div>
+                <span style="font-size: 26px; font-weight: 800; color: #F59E0B; letter-spacing: -0.5px;">12 Yêu cầu</span>
+              </div>
+            </div>
+
+            <!-- KPI 3 -->
+            <div class="glass-card" style="padding: 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 13px; color: #9CA3AF; font-weight: 500;">Đã xác nhận hôm nay</div>
+              <div>
+                <span style="font-size: 26px; font-weight: 800; color: #10B981; letter-spacing: -0.5px;">36 Buổi tập</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Toolbar: Filter Pills (Left) & Search Bar (Right) -->
+          <div class="card-header-flex" style="margin-bottom: 20px; gap: 16px; flex-wrap: wrap;">
+            <div class="filter-tabs" id="bookingFilterTabs">
+              <button class="tab-btn active" onclick="filterBookings('all', event)">Tất cả</button>
+              <button class="tab-btn" onclick="filterBookings('Pending', event)">Chờ duyệt</button>
+              <button class="tab-btn" onclick="filterBookings('Confirmed', event)">Đã xác nhận</button>
+            </div>
+
+            <div class="search-box" style="max-width: 320px;">
+              <i class="fa fa-search" style="color: var(--text-dim);"></i>
+              <input type="text" id="bookingSearchInput" placeholder="Tìm mã đặt hoặc hội viên..." onkeyup="handleBookingSearch()">
+            </div>
+          </div>
+
+          <!-- Table Container -->
+          <div class="glass-card">
+            <div class="table-container">
+              <table class="custom-table">
+                <thead>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
+                    <th style="color: #FF334B; font-weight: 700;">Mã Lịch</th>
+                    <th style="color: #FF334B; font-weight: 700;">Khung Giờ</th>
+                    <th style="color: #FF334B; font-weight: 700;">Hội Viên</th>
+                    <th style="color: #FF334B; font-weight: 700;">HLV Phụ Trách</th>
+                    <th style="color: #FF334B; font-weight: 700;">Ngày Tập</th>
+                    <th style="color: #FF334B; font-weight: 700;">Nội Dung / Ghi Chú</th>
+                    <th style="color: #FF334B; font-weight: 700;">Trạng Thái</th>
+                    <th style="color: #FF334B; font-weight: 700; text-align: center;">Thao Tác</th>
+                  </tr>
+
+
+                </thead>
+                <tbody id="bookingTableBody">
+                  <!-- Populated by trainer.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= TAB 3: SESSIONS - LỊCH DẠY CỦA TÔI (CHUẨN FIGMA) ================= -->
+        <section id="section_sessions" class="tab-section" style="display: none;">
+          <!-- Header Bar -->
+          <div class="card-header-flex" style="margin-bottom: 24px;">
+            <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF; margin: 0;">Lịch dạy của tôi</h2>
+          </div>
+
+          <!-- Main Glass Card Container -->
+          <div class="glass-card" style="padding: 24px;">
+            <!-- Day of Week Tabs -->
+            <div class="filter-tabs" id="sessionDayTabs" style="display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; background: rgba(255,255,255,0.03); padding: 6px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06);">
+              <button class="tab-btn active" style="flex: 1; padding: 10px 14px; border-radius: 8px; font-weight: 700;" onclick="filterSessionDay('all', event)">Tất cả</button>
+              <button class="tab-btn" style="flex: 1; padding: 10px 14px; border-radius: 8px; font-weight: 600;" onclick="filterSessionDay('T2', event)">T2 (Mon)</button>
+              <button class="tab-btn" style="flex: 1; padding: 10px 14px; border-radius: 8px; font-weight: 600;" onclick="filterSessionDay('T3', event)">T3 (Tue)</button>
+              <button class="tab-btn" style="flex: 1; padding: 10px 14px; border-radius: 8px; font-weight: 600;" onclick="filterSessionDay('T4', event)">T4 (Wed)</button>
+              <button class="tab-btn" style="flex: 1; padding: 10px 14px; border-radius: 8px; font-weight: 600;" onclick="filterSessionDay('T5', event)">T5 (Thu)</button>
+              <button class="tab-btn" style="flex: 1; padding: 10px 14px; border-radius: 8px; font-weight: 600;" onclick="filterSessionDay('T6', event)">T6 (Fri)</button>
+              <button class="tab-btn" style="flex: 1; padding: 10px 14px; border-radius: 8px; font-weight: 600;" onclick="filterSessionDay('T7', event)">T7 (Sat)</button>
+              <button class="tab-btn" style="flex: 1; padding: 10px 14px; border-radius: 8px; font-weight: 600;" onclick="filterSessionDay('CN', event)">CN (Sun)</button>
+            </div>
+
+            <!-- List of Sessions -->
+            <div id="sessionListContainer" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+              <!-- Populated by trainer.js -->
+            </div>
+
+            <!-- Footer KPI Info -->
+            <div style="display: flex; gap: 28px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 13.5px; color: #9CA3AF; font-weight: 600;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #FF334B; display: inline-block;"></span>
+                <span>Tổng buổi tuần này: <strong style="color: #FFFFFF;">11 buổi</strong></span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #FF334B; display: inline-block;"></span>
+                <span>Tổng giờ dạy: <strong style="color: #FFFFFF;">11h</strong></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= TAB 4: FEEDBACKS (CHUẨN FIGMA) ================= -->
+        <section id="section_feedbacks" class="tab-section" style="display: none;">
+          <!-- Header Bar -->
+          <div class="card-header-flex" style="margin-bottom: 24px; align-items: center;">
+            <div>
+              <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF; margin: 0;">Feedback & Đánh Giá Huấn Luyện Viên</h2>
+              <p style="font-size: 13.5px; color: #9CA3AF; margin: 4px 0 0 0;">Dữ liệu từ bảng CSDL <code style="color: #FF334B; background: rgba(255,51,75,0.1); padding: 2px 6px; border-radius: 4px; font-weight: 600;">feedbacks</code> • Đánh giá chất lượng đào tạo & phục vụ</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="background: rgba(255, 51, 75, 0.1); border: 1px solid rgba(255, 51, 75, 0.3); border-radius: 20px; padding: 6px 16px; font-size: 13px; color: #FF334B; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                <i class="fa fa-database"></i> gym_management.feedbacks
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Table Container (Glass Card) -->
+          <div class="glass-card" style="margin-bottom: 24px;">
+            <div class="table-container">
+              <table class="custom-table">
+                <thead>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
+                    <th style="color: #FF334B; font-weight: 700; width: 70px;">Mã FB</th>
+                    <th style="color: #FF334B; font-weight: 700; width: 170px;">Người gửi (Hội viên)</th>
+                    <th style="color: #FF334B; font-weight: 700; width: 180px;">Đối tượng / HLV</th>
+                    <th style="color: #FF334B; font-weight: 700; width: 140px; white-space: nowrap;">Đánh giá sao</th>
+                    <th style="color: #FF334B; font-weight: 700;">Nội dung nhận xét &amp; Góp ý</th>
+                    <th style="color: #FF334B; font-weight: 700; width: 120px; text-align: center; white-space: nowrap;">Ngày gửi</th>
+                  </tr>
+                </thead>
+                <tbody id="feedbackTableBody">
+                  <!-- Populated by trainer.js -->
+                </tbody>
+              </table>
+
+
+            </div>
+          </div>
+
+          <!-- Bottom 4 Summary KPI Cards Grid -->
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;">
+            <!-- KPI 1 -->
+            <div class="glass-card" style="padding: 20px 22px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 13px; color: #9CA3AF; font-weight: 500;">Tổng số bản ghi</div>
+              <div>
+                <span id="fbTotalCount" style="font-size: 26px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px;">6</span>
+              </div>
+            </div>
+
+            <!-- KPI 2 -->
+            <div class="glass-card" style="padding: 20px 22px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 13px; color: #9CA3AF; font-weight: 500;">Đánh giá trung bình</div>
+              <div>
+                <span id="fbAvgRating" style="font-size: 26px; font-weight: 800; color: #F59E0B; letter-spacing: -0.5px;">4.33 ★</span>
+              </div>
+            </div>
+
+            <!-- KPI 3 -->
+            <div class="glass-card" style="padding: 20px 22px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 13px; color: #9CA3AF; font-weight: 500;">Trainer #1 (Tuấn)</div>
+              <div>
+                <span id="fbTrainer1Count" style="font-size: 26px; font-weight: 800; color: #10B981; letter-spacing: -0.5px;">3 FB</span>
+              </div>
+            </div>
+
+            <!-- KPI 4 -->
+            <div class="glass-card" style="padding: 20px 22px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 13px; color: #9CA3AF; font-weight: 500;">Trainer #2 (Hùng)</div>
+              <div>
+                <span id="fbTrainer2Count" style="font-size: 26px; font-weight: 800; color: #60A5FA; letter-spacing: -0.5px;">3 FB</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Add Booking Modal -->
+  <div id="bookingModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fa fa-calendar-plus text-red"></i> Đặt lịch hẹn với PT</h3>
+        <button class="btn-close-modal" onclick="closeModal('bookingModal')">&times;</button>
+      </div>
+
+      <form id="bookingForm" onsubmit="handleSaveBooking(event)">
+        <div class="form-group">
+          <label class="form-label">Chọn hội viên *</label>
+          <select id="bkMember" class="form-control" required></select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Chọn Huấn luyện viên *</label>
+          <select id="bkTrainer" class="form-control" required></select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ngày hẹn *</label>
+          <input type="date" id="bkDate" class="form-control" value="2026-08-30" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label class="form-label">Giờ bắt đầu</label>
+            <input type="time" id="bkStartTime" class="form-control" value="08:00" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Giờ kết thúc</label>
+            <input type="time" id="bkEndTime" class="form-control" value="09:00" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Bộ môn / Hình thức</label>
+          <select id="bkType" class="form-control">
+            <option value="Gym & Fitness">Gym & Fitness</option>
+            <option value="Bodybuilding">Bodybuilding</option>
+            <option value="Cardio">Cardio</option>
+            <option value="Boxing">Boxing</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ghi chú buổi tập</label>
+          <input type="text" id="bkNotes" class="form-control" placeholder="Ví dụ: Tập ngực & tay trước">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('bookingModal')">Hủy</button>
+          <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Xác nhận đặt lịch</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Trainer Modal -->
+  <div id="trainerModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fa fa-user-plus text-red"></i> Thêm Huấn luyện viên Mới</h3>
+        <button class="btn-close-modal" onclick="closeModal('trainerModal')">&times;</button>
+      </div>
+
+      <form id="trainerForm" onsubmit="handleSaveTrainer(event)">
+    <input type="hidden" id="editTrainerId">
+
+    <div class="form-group">
+        <label class="form-label">Họ và tên HLV *</label>
+        <input type="text" id="trName" class="form-control"
+               placeholder="Trần Minh Khang" required>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Ngày sinh</label>
+        <input type="date" id="trDob" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" id="trEmail" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Số điện thoại *</label>
+        <input type="tel" id="trPhone" class="form-control"
+               placeholder="0909123456" required>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Kinh nghiệm (Năm)</label>
+        <input type="number" id="trExp" class="form-control"
+               value="3" min="1">
+    </div>
+
+        <div class="form-group">
+          <label class="form-label">Chuyên môn đào tạo *</label>
+          <input type="text" id="trSpecialty" class="form-control" placeholder="Tăng cơ, giảm mỡ, Bodybuilding..." required>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('trainerModal')">Hủy</button>
+          <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Lưu HLV</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+
+  <script src="../js/mock_data.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/trainer.js"></script>
+</body>
+</html>

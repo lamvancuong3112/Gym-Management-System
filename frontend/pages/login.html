@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITNESS - Đăng nhập Hệ thống Gym</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="margin: 0; padding: 0; overflow-x: hidden;">
+
+  <!-- Khung bao toàn màn hình đăng nhập chuẩn Figma Desktop - 1 -->
+  <div class="figma-login-wrapper">
+    
+    <div></div> <!-- Khoảng trống phía trên để căn giữa -->
+
+    <!-- Vùng trung tâm: Tiêu đề FITNESS và Form đăng nhập -->
+    <div class="figma-login-center">
+      <!-- Tiêu đề chữ rỗng FITNESS -->
+      <h1 class="figma-brand-title">FITNESS</h1>
+
+      <!-- Form nhập thông tin -->
+      <form id="loginForm" class="figma-login-form">
+        <!-- Trường Tên đăng nhập -->
+        <div>
+          <div class="figma-label">Tên đăng nhập</div>
+          <div class="figma-input-box">
+            <i class="fa fa-user input-icon"></i>
+            <input type="text" id="username" placeholder="Nhập tên đăng nhập..."username">
+          </div>
+        </div>
+
+        <!-- Trường Mật khẩu -->
+        <div>
+          <div class="figma-label">Mật khẩu</div>
+          <div class="figma-input-box">
+            <i class="fa fa-lock input-icon"></i>
+            <input type="password" id="password" placeholder="Nhập mật khẩu..." "current-password">
+            <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility()" title="Hiện/ẩn mật khẩu">
+              <i id="eyeIcon" class="fa fa-eye-slash"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Link Tạo tài khoản -->
+        <div class="figma-register-link">
+          <a href="register.html">Tạo tài khoản?</a>
+        </div>
+
+        <!-- Nút ĐĂNG NHẬP -->
+        <button type="submit" class="figma-btn-submit">
+          ĐĂNG NHẬP
+        </button>
+
+        <!-- Nút Góp ý / Feedback cho Hội viên (Không cần đăng nhập) -->
+        <div style="margin-top: 10px; text-align: center;">
+          <button type="button" class="btn-public-feedback" onclick="openPublicFeedbackModal()">
+            <i class="fa fa-comment-dots" style="color: #FF334B;"></i> Đánh giá &amp; Góp ý cho chúng tôi (Feedback)
+          </button>
+        </div>
+
+        <!-- Thanh chọn nhanh tài khoản mẫu để chấm bài / demo -->
+        <div class="figma-demo-bar">
+         
+
+        </div>
+      </form>
+    </div>
+
+    <!-- Public Feedback Modal (Hội viên gửi phản hồi không cần đăng nhập) -->
+    <div id="publicFeedbackModal" class="modal-overlay">
+      <div class="modal-content" style="max-width: 520px;">
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title" style="margin: 0;"><i class="fa fa-comment-dots text-red"></i> Đánh Giá &amp; Góp Ý Dịch Vụ</h3>
+            <p style="font-size: 12.5px; color: #9CA3AF; margin: 4px 0 0 0;">Ý kiến của bạn giúp chúng tôi nâng cao chất lượng phòng tập!</p>
+          </div>
+          <button class="btn-close-modal" onclick="closeModal('publicFeedbackModal')">&times;</button>
+        </div>
+
+        <form id="publicFeedbackForm" onsubmit="handlePublicFeedbackSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Họ và tên của bạn *</label>
+            <input type="text" id="fbMemberName" class="form-control" placeholder="VD: Nguyễn Văn An, Trần Thị Bình..." required style="font-weight: 700;">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Đối tượng / Huấn luyện viên (PT) cần đánh giá *</label>
+            <select id="fbTrainerSelect" class="form-control" required>
+            <option value="0">⭐ Đánh giá chung chất lượng Phòng tập &amp; Cơ sở vật chất</option>
+          </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Mức độ hài lòng *</label>
+            <div class="star-rating-box" id="fbStarRating">
+              <span class="star-btn active" data-rating="1" onclick="setFeedbackRating(1)"><i class="fa fa-star"></i></span>
+              <span class="star-btn active" data-rating="2" onclick="setFeedbackRating(2)"><i class="fa fa-star"></i></span>
+              <span class="star-btn active" data-rating="3" onclick="setFeedbackRating(3)"><i class="fa fa-star"></i></span>
+              <span class="star-btn active" data-rating="4" onclick="setFeedbackRating(4)"><i class="fa fa-star"></i></span>
+              <span class="star-btn active" data-rating="5" onclick="setFeedbackRating(5)"><i class="fa fa-star"></i></span>
+              <span id="ratingText" style="font-size: 13px; font-weight: 700; color: #F59E0B; margin-left: 10px;">5/5 Tuyệt vời ⭐</span>
+            </div>
+            <input type="hidden" id="fbRatingVal" value="5">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Nội dung đánh giá &amp; Góp ý chi tiết *</label>
+            <textarea id="fbComment" class="form-control" rows="4" placeholder="VD: Phòng tập sạch sẽ, máy móc hiện đại và Huấn luyện viên hướng dẫn rất nhiệt tình..." required></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+            <button type="button" class="btn btn-secondary" onclick="closeModal('publicFeedbackModal')">Hủy</button>
+            <button type="submit" class="btn btn-primary" style="padding: 10px 24px; font-weight: 700;"><i class="fa fa-paper-plane"></i> Gửi Đánh Giá</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Vùng chân trang: Thông tin liên hệ góc trái & Khẩu hiệu đỏ góc phải -->
+    <div class="figma-footer-row">
+      <!-- Thông tin liên hệ góc trái dưới -->
+      <div class="figma-contact-info">
+        <div>Địa chỉ: 1234567892345678</div>
+        <div>Hotline:113</div>
+        <div>Email: fitness123@gmail.com</div>
+      </div>
+
+      <!-- Khẩu hiệu thư pháp đỏ: "Sức mạnh và làm giàu" -->
+      <div class="figma-slogan-red">
+        Sức mạnh và làm giàu
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Scripts xử lý nghiệp vụ -->
+  <script src="../js/mock_data.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/auth.js"></script>
+
+  <script>
+    // Hàm ẩn / hiện mật khẩu
+    function togglePasswordVisibility() {
+      const pwdInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eyeIcon');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        eyeIcon.className = 'fa fa-eye';
+      } else {
+        pwdInput.type = 'password';
+        eyeIcon.className = 'fa fa-eye-slash';
+      }
+    }
+  </script>
+    <script>
+  async function loadPublicFeedbackTrainers() {
+    const select = document.getElementById('fbTrainerSelect');
+
+    if (!select) return;
+
+    try {
+      const trainers = await GymAPI.getTrainers();
+
+      if (!Array.isArray(trainers)) return;
+
+      select.innerHTML = `
+        <option value="0">
+          ⭐ Đánh giá chung chất lượng Phòng tập &amp; Cơ sở vật chất
+        </option>
+      `;
+
+      trainers.forEach(trainer => {
+        const option = document.createElement('option');
+
+        option.value = trainer.TrainerID;
+        option.textContent =
+          `🏋️ HLV ${trainer.FullName}` +
+          (trainer.Specialty
+            ? ` (Chuyên môn: ${trainer.Specialty})`
+            : '');
+
+        select.appendChild(option);
+      });
+
+    } catch (error) {
+      console.error('Không thể tải danh sách HLV:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadPublicFeedbackTrainers();
+  });
+</script>
+</body>
+</html>

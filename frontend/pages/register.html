@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký Hội viên - Gym Management System</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card" style="max-width: 520px;">
+      <div class="auth-header">
+        <img src="../assets/images/logo.png" alt="Gym Logo" class="auth-logo" style="background: #FFF; border-radius: 14px; padding: 4px;">
+        <h1 class="auth-title">ĐĂNG KÝ HỘI VIÊN</h1>
+        <p class="auth-subtitle">Trở thành thành viên của cộng đồng Gym Fitness</p>
+      </div>
+
+      <form id="registerForm" class="auth-form">
+        <div class="auth-input-group">
+          <label for="regFullname"><i class="fa fa-user"></i> Họ và tên *</label>
+          <div class="auth-input-wrapper">
+            <input type="text" id="regFullname" placeholder="Nguyễn Văn A" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="auth-input-group">
+            <label for="regPhone"><i class="fa fa-phone"></i> Số điện thoại</label>
+            <div class="auth-input-wrapper">
+              <input type="tel" id="regPhone" placeholder="0901234567">
+            </div>
+          </div>
+          <div class="auth-input-group">
+            <label for="regEmail"><i class="fa fa-envelope"></i> Email</label>
+            <div class="auth-input-wrapper">
+              <input type="email" id="regEmail" placeholder="email@gmail.com">
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="auth-input-group">
+            <label for="regUsername"><i class="fa fa-user-circle"></i> Tên đăng nhập *</label>
+            <div class="auth-input-wrapper">
+              <input type="text" id="regUsername" placeholder="username" required>
+            </div>
+          </div>
+          <div class="auth-input-group">
+            <label for="regPassword"><i class="fa fa-lock"></i> Mật khẩu *</label>
+            <div class="auth-input-wrapper">
+              <input type="password" id="regPassword" placeholder="••••••••" required>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-auth-submit">
+          <i class="fa fa-user-plus"></i> ĐĂNG KÝ TÀI KHOẢN
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/mock_data.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

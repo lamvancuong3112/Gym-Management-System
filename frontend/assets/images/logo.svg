@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="gymGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF4D4D"/>
+      <stop offset="100%" stop-color="#E50914"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <!-- Outer circle border -->
+  <circle cx="50" cy="50" r="46" fill="#17121A" stroke="#FFFFFF" stroke-width="2.5"/>
+  <circle cx="50" cy="50" r="41" fill="#0D0911" stroke="#FF334B" stroke-width="1.5" stroke-dasharray="2, 4"/>
+  
+  <!-- Muscular Bodybuilder Silhouette Icon -->
+  <g fill="#FFFFFF">
+    <!-- Head & Cap -->
+    <path d="M 45 22 C 45 18 55 18 55 22 C 55 24 53 26 50 26 C 47 26 45 24 45 22 Z"/>
+    <path d="M 42 20 Q 50 16 58 19 Q 54 22 42 20 Z" fill="#FF334B"/>
+    <!-- Neck & Traps -->
+    <path d="M 46 26 L 40 31 L 60 31 L 54 26 Z"/>
+    <!-- Torso / Chest / Abs -->
+    <path d="M 38 32 C 43 32 47 34 50 36 C 53 34 57 32 62 32 C 65 37 63 45 60 52 C 58 58 56 65 55 72 L 45 72 C 44 65 42 58 40 52 C 37 45 35 37 38 32 Z"/>
+    <!-- Left Bicep / Arm flexed -->
+    <path d="M 37 33 C 32 30 25 32 23 38 C 21 44 26 48 30 46 C 33 45 35 48 38 49 C 39 44 38 38 37 33 Z"/>
+    <path d="M 23 38 C 22 34 26 27 30 25 C 33 24 35 27 32 31 Z"/>
+    <!-- Right Bicep / Arm flexed -->
+    <path d="M 63 33 C 68 30 75 32 77 38 C 79 44 74 48 70 46 C 67 45 65 48 62 49 C 61 44 62 38 63 33 Z"/>
+    <path d="M 77 38 C 78 34 74 27 70 25 C 67 24 65 27 68 31 Z"/>
+    <!-- Belt / Waist -->
+    <rect x="44" y="70" width="12" height="4" rx="2" fill="#FF334B"/>
+  </g>
+  <!-- Dumbbell accent bottom -->
+  <path d="M 32 79 L 68 79 M 32 76 L 32 82 M 35 75 L 35 83 M 68 76 L 68 82 M 65 75 L 65 83" stroke="#FF334B" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
